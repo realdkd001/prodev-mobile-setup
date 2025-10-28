@@ -11,7 +11,9 @@ As someone new to React Native, my goal was to successfully configure all necess
 The main objective of this task was to:
 - Install and configure the required tools for mobile app development.
 - Use Expo Go to test React Native applications directly on a mobile device.
-- Document the entire setup process and note any challenges faced.
+- Document the setup process and note any challenges faced.
+- Record the steps I followed for scaffolding the project.
+- Share my observations from using the `npx expo reset-project` command.
 
 ---
 
@@ -56,34 +58,71 @@ Expo Go allows me to preview React Native apps instantly on my phone without ins
 
 ---
 
-### Step 3: Creating My First React Native App
+### Step 3: Scaffolding the Project
 
-With everything installed, I opened my terminal and ran the following commands:
+To scaffold (create) my first React Native project using Expo, I followed these steps:
+
+1. Opened my terminal and ran:
+
+   ```bash
+   npx create-expo-app app-example
+   ```
+
+2. Navigated into the newly created project folder:
+
+   ```bash
+   cd app-example
+   ```
+
+3. Installed dependencies (in case they didn’t auto-install):
+
+   ```bash
+   npm install
+   ```
+
+4. Started the project using the local CLI (as the global `expo-cli` is deprecated):
+
+   ```bash
+   npx expo start
+   ```
+
+This successfully created a new Expo project with a preconfigured folder structure containing:
+
+* `App.js`
+* `package.json`
+* `node_modules/`
+* `assets/`
+* `app.json`
+
+I was able to scan the generated QR code in **Expo Go**, and the default “Welcome to React Native” screen appeared on my phone.
+
+---
+
+### Step 4: Observations from the `npx expo reset-project` Command
+
+After scaffolding the project, I ran the command:
 
 ```bash
-npm install -g expo-cli
+npx expo reset-project
 ```
 
-Then I created a new project:
+Here’s what I observed:
 
-```bash
-npx create-expo-app my-first-app
-```
+1. The command **resets the project to its default Expo template**, removing any extra configurations or files that might have been added.
+2. It **cleans up node modules** and reinitializes dependencies to ensure the project starts in a stable state.
+3. It helps fix issues such as:
 
-Navigated into the project folder:
+   * Missing dependencies
+   * Project corruption
+   * Incorrect configurations after updates
+4. After running it, I had to reinstall dependencies using:
 
-```bash
-cd my-first-app
-```
+   ```bash
+   npm install
+   ```
+5. When I restarted with `npx expo start`, the app loaded as if it was newly created.
 
-Started the development server:
-
-```bash
-npx expo start
-```
-
-A QR code appeared in my terminal/browser window.
-I scanned it using the Expo Go app on my phone, and after a short moment, my test app opened successfully.
+In summary, the `reset-project` command is helpful for beginners to restore their project if something breaks during setup.
 
 ---
 
@@ -102,11 +141,12 @@ This distinction helped me understand how both work together to simplify testing
 
 ## Challenges Faced and Solutions
 
-| Challenge                  | Cause                                                | Solution                                          |
-| -------------------------- | ---------------------------------------------------- | ------------------------------------------------- |
-| QR code not scanning       | My phone and laptop were on different Wi-Fi networks | Connected both devices to the same network        |
-| Slow loading of the app    | Weak Wi-Fi connection                                | Restarted router and re-ran `npx expo start`      |
-| Confusion about tool usage | New to React Native environment                      | Read Expo documentation and tested multiple times |
+| Challenge                                   | Cause                                                | Solution                                             |
+| ------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| QR code not scanning                        | My phone and laptop were on different Wi-Fi networks | Connected both devices to the same network           |
+| Slow loading of the app                     | Weak Wi-Fi connection                                | Restarted router and re-ran `npx expo start`         |
+| “Unable to find expo in this project” error | Missing local dependencies                           | Ran `npm install` in the project directory           |
+| Confusion about tool usage                  | New to React Native environment                      | Read Expo documentation and practiced multiple times |
 
 ---
 
@@ -115,9 +155,10 @@ This distinction helped me understand how both work together to simplify testing
 After completing the setup:
 
 * I can now run and test React Native apps on my physical Android device.
-* VS Code is connected and ready for development.
+* VS Code is configured and ready for development.
 * I understand the difference between Expo CLI and Expo Go.
-* I’m ready to start building my first real React Native project.
+* I’m familiar with scaffolding and resetting a React Native project.
+* I’m ready to start building my first real mobile application.
 
 ---
 
@@ -125,6 +166,7 @@ After completing the setup:
 
 * Task: Setting Up and Testing Mobile Development Environment
 * Framework: Expo (React Native)
+* Date Completed: October 2025
 * Author: Daniel (Beginner React Native Developer)
 
 ---
@@ -133,7 +175,7 @@ After completing the setup:
 
 This was my first experience setting up a mobile development environment.
 At first, I was nervous about compatibility issues and thought I might need an emulator. However, Expo Go made the process smooth and beginner-friendly.
-Seeing my first app appear on my phone felt very rewarding, and it motivated me to continue learning React Native.
+Running my first app successfully on my phone felt rewarding, and it motivated me to continue learning React Native.
 
 ---
 
@@ -141,8 +183,10 @@ Seeing my first app appear on my phone felt very rewarding, and it motivated me 
 
 * Node.js and VS Code installed successfully
 * Expo Go set up on Android device
-* First React Native app created and tested
-* Environment verified and working correctly
+* Project scaffolded using `npx create-expo-app`
+* Verified the project with `npx expo start`
+* Tested and reset successfully using `npx expo reset-project`
+* Environment working correctly
 
 This marks the beginning of my journey into mobile app development with React Native.
 
